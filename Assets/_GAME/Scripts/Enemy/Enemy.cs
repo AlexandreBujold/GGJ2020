@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour, IKillable
     private bool alive;
 
     public AIManager aiManager;
+    public RepairObjective repairObjective;
     public GameObject target;
 
     [SerializeField] private NavMeshAgent agent;
@@ -32,13 +33,14 @@ public class Enemy : MonoBehaviour, IKillable
         target = GameObject.Find("Player 1");
         alive = true;
         aiManager.AddToList(this.gameObject);
+        //repairObjective.AddToList(this.gameObject);
         StartCoroutine(UpdatePosition(0.15f));
     }
 
     private void OnDisable()
     {
         aiManager.RemoveFromList(this.gameObject);
-
+        //repairObjective.RemoveFromList(this.gameObject);
         StopAllCoroutines();
     }
 

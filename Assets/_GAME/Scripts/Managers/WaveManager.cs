@@ -7,6 +7,8 @@ public class WaveManager : MonoBehaviour
 
     public static WaveManager instance;
 
+    private AIManager aiManager;
+
     public List<GameObject> pooledAgents;
 
     [SerializeField] private GameObject agentParent; //Object to sort all agents under. Object should exist at Vector3.zero
@@ -32,6 +34,7 @@ public class WaveManager : MonoBehaviour
         }
         /////Singleton Initialization/////
 
+        aiManager = GetComponent<AIManager>();
         agentParent = GameObject.Find("PooledAgents");
         if(agentParent.transform.position != Vector3.zero) //Resets agentParent to Vector3.zero if it has been moved
         {
@@ -62,13 +65,11 @@ public class WaveManager : MonoBehaviour
             }
         }
 
-        ////DEBUG STATEMENT////
-        if(waveComplete)
+        if (waveComplete)
         {
             CreateWaveParameters();
             Debug.Log("ADVANCED WAVE WITH " + WaveNumber + " " + WaveStrength + " " + MaxSpawnedAgents);
         }
-        ////DEBUG STATEMENT////
     }
 
     void CreateWaveParameters()
@@ -77,5 +78,13 @@ public class WaveManager : MonoBehaviour
         WaveStrength = 5 + (WaveNumber * 8) + ((int)Mathf.Sqrt(WaveNumber * 8));
         MaxSpawnedAgents = 10 + (WaveNumber * 5);
         waveComplete = false;
+    }
+
+    public void ReturnAgentsToPool(List<GameObject> agentsToReturn)
+    {
+        foreach(GameObject agent in agentsToReturn)
+        {
+            agent.SetActive(false);
+        }
     }
 }

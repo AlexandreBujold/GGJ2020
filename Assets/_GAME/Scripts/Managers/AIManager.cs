@@ -175,6 +175,11 @@ public class AIManager : MonoBehaviour
         else
             return false;
     }
+
+    //public List<GameObject> RetrieveList()
+    //{
+    //    return agentList;
+    //}
     #endregion
 
     #region WaveMethods

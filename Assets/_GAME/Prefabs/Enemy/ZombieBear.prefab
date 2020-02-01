@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1167106428686390938}
   - component: {fileID: 5498794340912192142}
   - component: {fileID: 3883892616895763041}
-  - component: {fileID: 7965118308949840915}
   m_Layer: 10
   m_Name: Sphere
   m_TagString: Untagged
@@ -79,19 +78,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &7965118308949840915
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1047171347880437099}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2193760164496856441
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,7 +89,6 @@ GameObject:
   - component: {fileID: 4631160200033445455}
   - component: {fileID: 3234583820305761056}
   - component: {fileID: 4385483787017145934}
-  - component: {fileID: 7913278052245182191}
   m_Layer: 10
   m_Name: Visual
   m_TagString: Untagged
@@ -171,20 +156,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &7913278052245182191
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2193760164496856441}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3510855154738033142
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,9 +167,10 @@ GameObject:
   - component: {fileID: 1083363138079580442}
   - component: {fileID: 51983342955257458}
   - component: {fileID: 3306429357484170318}
+  - component: {fileID: 6064880186125565466}
   m_Layer: 10
   m_Name: ZombieBear
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -233,6 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiManager: {fileID: 0}
+  repairObjective: {fileID: 0}
   target: {fileID: 0}
   agent: {fileID: 0}
 --- !u!195 &3306429357484170318
@@ -257,6 +230,20 @@ NavMeshAgent:
   m_BaseOffset: 0.98
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &6064880186125565466
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3510855154738033142}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5133002500757410372
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,7 +260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7538735467369774927
 Transform:
   m_ObjectHideFlags: 0
