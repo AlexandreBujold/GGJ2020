@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using Sirenix.OdinInspector;
 
 public class AIManager : MonoBehaviour
@@ -10,6 +11,11 @@ public class AIManager : MonoBehaviour
     [Header("Wave Manager and Agent List")]
     [SerializeField] private WaveManager waveManager;
     [SerializeField] private List<GameObject> agentList;
+
+    [Space]
+    [Header("Spawn Zones")]
+    [SerializeField] private GameObject zoneParent;
+    [SerializeField] private List<GameObject> spawnZoneList;
 
     [Space]
     [Header("Wave integers")]
@@ -39,6 +45,11 @@ public class AIManager : MonoBehaviour
         /////Singleton initialization/////
 
         waveManager = GetComponent<WaveManager>();
+        zoneParent = GameObject.Find("SpawnZones");
+        foreach(Transform child in zoneParent.transform)
+        {
+            spawnZoneList.Add(child.gameObject);
+        }
         agentList = new List<GameObject>();
     }
 
@@ -115,7 +126,27 @@ public class AIManager : MonoBehaviour
 
     void SetAgentSpawnPosition(GameObject agent)
     {
+        agent.transform.position = GenerateSpawnPoint(spawnZoneList.Count);
+    }
 
+    private Vector3 GenerateSpawnPoint(int spawnerMax)
+    {
+        int spawnerToUse = Random.Range(0, spawnerMax);
+
+        GameObject selectedSpawner = spawnZoneList[spawnerToUse];
+        Debug.Log(selectedSpawner);
+        ZombieSpawnZone spawnerScript = selectedSpawner.GetComponent<ZombieSpawnZone>();
+        Vector3 spawnerPosition = selectedSpawner.transform.position;
+
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(spawnerPosition + (Random.insideUnitSphere * spawnerScript.zoneRadius), out hit, spawnerScript.zoneRadius, NavMesh.AllAreas))
+        {
+            return hit.position;
+        }
+        else
+        {
+            return Vector3.zero;
+        }
     }
 
     #region ListMethods
