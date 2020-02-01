@@ -75,6 +75,17 @@ public class Enemy : MonoBehaviour, IKillable
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (target != null)
+        {
+            if (other.transform.parent.transform.gameObject == target)
+            {
+                target.gameObject.GetComponent<Health>().Damage(1f);
+            }
+        }
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
