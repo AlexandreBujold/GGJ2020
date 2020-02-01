@@ -128,7 +128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 245aaa8a9b398b44eba014fc1b62d0e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myCamera: {fileID: 1356732448702310985}
   heldItem: {fileID: 0}
   holdTransform: {fileID: 1356732449296662947}
   raycastRange: 10
@@ -304,7 +303,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f1ea5343af44b43349761cde329741a7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -442,11 +441,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1356732447454401830}
     m_Modifications:
-    - target: {fileID: 3228770941254320634, guid: 53e47ce6905d75c48b1a3ee0ce3c019f,
-        type: 3}
-      propertyPath: m_Name
-      value: Player UI
-      objectReference: {fileID: 0}
     - target: {fileID: 6713176199269367616, guid: 53e47ce6905d75c48b1a3ee0ce3c019f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -551,6 +545,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228770941254320634, guid: 53e47ce6905d75c48b1a3ee0ce3c019f,
+        type: 3}
+      propertyPath: m_Name
+      value: Player UI
       objectReference: {fileID: 0}
     - target: {fileID: 3146654084468646697, guid: 53e47ce6905d75c48b1a3ee0ce3c019f,
         type: 3}
