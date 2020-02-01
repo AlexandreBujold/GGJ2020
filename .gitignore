@@ -63,3 +63,10 @@ crashlytics-build.properties
 # SecondMouse/FMODstudioProject/SecondMouseSound/Plugins/FMOD/Resources/FMODStudioCache.asset
 # SecondMouse/FMODstudioProject/SecondMouseSound/StreamingAssets/*.bank
 # fmod_editor.log
+Assets/_GAME/Art/Images.meta
+Assets/_GAME/Art/Models.meta
+Assets/_GAME/Audio.meta
+Assets/Plugins/Sirenix/Demos/Custom Attribute Processors.unitypackage.meta
+Assets/Plugins/Sirenix/Demos/Custom Drawers.unitypackage.meta
+Assets/Plugins/Sirenix/Demos/Editor Windows.unitypackage.meta
+Assets/Plugins/Sirenix/Demos/Sample - RPG Editor.unitypackage.meta
