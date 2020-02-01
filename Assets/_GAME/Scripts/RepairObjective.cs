@@ -7,6 +7,9 @@ public class RepairObjective : MonoBehaviour
     private WaveManager waveManager;
 
     [SerializeField] private List<GameObject> killableZombies;
+    [SerializeField] private List<Transform> teleportPositions;
+
+    private GameObject positions;
 
     private SphereCollider shockCollider;
 
@@ -16,8 +19,15 @@ public class RepairObjective : MonoBehaviour
     [SerializeField] private int activationCost;
     [SerializeField] private int depositedMaterialCount;
 
+    [SerializeField] private int currentTeleIndex = 0;
+
     private void Awake()
     {
+        positions = GameObject.Find("ObjectiveLocations");
+        foreach(Transform child in positions.transform)
+        {
+            teleportPositions.Add(child);
+        }
         waveManager = GameObject.Find("Singletons").GetComponent<WaveManager>();
         killableZombies = new List<GameObject>();
         shockRadius = 5f;
@@ -26,6 +36,7 @@ public class RepairObjective : MonoBehaviour
 
     void Start()
     {
+        transform.position = RandomizePosition();
         shockCollider = GetComponent<SphereCollider>();
         shockCollider.radius = shockRadius;
     }
@@ -62,6 +73,19 @@ public class RepairObjective : MonoBehaviour
         killableZombies.Clear();
         shockRadius += 5f;
         shockCollider.radius = shockRadius;
+        transform.position = RandomizePosition();
+    }
+
+    private Vector3 RandomizePosition()
+    {
+        int randomIndex = Random.Range(0, teleportPositions.Count);
+        while(currentTeleIndex == randomIndex)
+        {
+            randomIndex = Random.Range(0, teleportPositions.Count);
+        }
+        currentTeleIndex = randomIndex;
+
+        return teleportPositions[randomIndex].transform.position;
     }
 
     private void OnTriggerEnter(Collider other)
