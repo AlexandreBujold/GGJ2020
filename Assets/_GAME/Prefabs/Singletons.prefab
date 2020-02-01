@@ -46,7 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pooledAgents: []
   agentParent: {fileID: 0}
-  zombieBearPrefab: {fileID: 0}
+  zombieBearPrefab: {fileID: 3510855154738033142, guid: d1f7a1005faa0d943ad3916555f2ed06,
+    type: 3}
   waveComplete: 0
 --- !u!114 &1228044133684376696
 MonoBehaviour:
@@ -63,6 +64,10 @@ MonoBehaviour:
   waveManager: {fileID: 0}
   agentList:
   - {fileID: 0}
+  waveNumber: 0
   maxSpawnedAgents: 25
   agentsPerWave: 0
+  agentsSpawnedInWave: 0
+  waveCooldown: 10
   spawnAgents: 0
+  disableSpawnTemp: 0

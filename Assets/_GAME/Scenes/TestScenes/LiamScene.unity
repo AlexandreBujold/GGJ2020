@@ -227,7 +227,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1226378042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.7388315, y: 6.4193664, z: 4.394339}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -300,12 +300,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1228044133684376697, guid: 563140212a8e426479b90efce5edd5f2,
-        type: 3}
-      propertyPath: zombieBearPrefab
-      value: 
-      objectReference: {fileID: 3510855154738033142, guid: d1f7a1005faa0d943ad3916555f2ed06,
-        type: 3}
     - target: {fileID: 1228044133684376697, guid: 563140212a8e426479b90efce5edd5f2,
         type: 3}
       propertyPath: agentParent
