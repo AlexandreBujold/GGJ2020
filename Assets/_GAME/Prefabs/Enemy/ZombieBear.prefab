@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5498794340912192142}
   - component: {fileID: 3883892616895763041}
   - component: {fileID: 7965118308949840915}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 3234583820305761056}
   - component: {fileID: 4385483787017145934}
   - component: {fileID: 7913278052245182191}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,8 +195,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1083363138079580442}
   - component: {fileID: 51983342955257458}
-  - component: {fileID: 3505805529355004935}
-  m_Layer: 0
+  - component: {fileID: 3306429357484170318}
+  m_Layer: 10
   m_Name: ZombieBear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aiManager: {fileID: 0}
   target: {fileID: 0}
---- !u!195 &3505805529355004935
+  agent: {fileID: 0}
+--- !u!195 &3306429357484170318
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -266,7 +267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7538735467369774927}
   - component: {fileID: 1376280604555846590}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

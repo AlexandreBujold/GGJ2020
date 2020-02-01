@@ -10,7 +10,9 @@ public class Enemy : MonoBehaviour, IKillable
     public AIManager aiManager;
     public GameObject target;
 
-    private NavMeshAgent agent;
+    [SerializeField] private NavMeshAgent agent;
+
+    Vector3 testPos;
 
     private void Awake()
     {
@@ -21,13 +23,13 @@ public class Enemy : MonoBehaviour, IKillable
     private void Start()
     {
         aiManager = GameObject.Find("Singletons").GetComponent<AIManager>();
-        target = GameObject.Find("Player");
+        target = GameObject.Find("Player 1");
     }
 
     private void OnEnable()
     {
 
-        target = GameObject.Find("Player");
+        target = GameObject.Find("Player 1");
         alive = true;
         aiManager.AddToList(this.gameObject);
         StartCoroutine(UpdatePosition(0.15f));
@@ -61,11 +63,21 @@ public class Enemy : MonoBehaviour, IKillable
         {
             yield return new WaitForSeconds(waitTime);
             NavMeshHit hit;
+            int groundMask = 1 << NavMesh.GetAreaFromName("Walkable");
 
-            if(NavMesh.SamplePosition(target.transform.position, out hit, 1f, NavMesh.AllAreas))
+            if(NavMesh.SamplePosition(target.transform.position, out hit, 5f, groundMask))
             {
                 agent.SetDestination(hit.position);
+                testPos = hit.position;
             }
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(testPos, 1f);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(target.transform.position, 1f);
     }
 }
