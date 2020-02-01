@@ -50,7 +50,17 @@ public class ShockShot : Weapon
                 Physics.Raycast(transform.position, newShotDirection, out hit, range, hitMask);
                 
                 rayShots.Add(new Ray(transform.position, newShotDirection));
+
                 
+                if (hit.collider != null)
+                {
+                    Enemy enemy = hit.collider.gameObject.GetComponentInChildren<Enemy>();
+                    if (enemy != null)
+                    {
+                        Debug.Log(enemy.gameObject.name + " KILLED!", enemy.gameObject);
+                        enemy.Kill();
+                    }
+                }
             }
             rays = rayShots;
         }

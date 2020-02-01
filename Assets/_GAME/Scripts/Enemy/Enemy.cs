@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour, IKillable
 
     private void OnEnable()
     {
+
         target = GameObject.Find("Player");
         alive = true;
         aiManager.AddToList(this.gameObject);
@@ -35,6 +36,7 @@ public class Enemy : MonoBehaviour, IKillable
     private void OnDisable()
     {
         aiManager.RemoveFromList(this.gameObject);
+
         StopAllCoroutines();
     }
 
@@ -52,6 +54,7 @@ public class Enemy : MonoBehaviour, IKillable
         gameObject.SetActive(false);
     }
 
+
     private IEnumerator UpdatePosition(float waitTime)
     {
         while (true)
@@ -65,6 +68,4 @@ public class Enemy : MonoBehaviour, IKillable
             }
         }
     }
-
-
 }
