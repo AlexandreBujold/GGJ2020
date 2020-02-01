@@ -1,20 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 public class AIManager : MonoBehaviour
 {
     public static AIManager instance = null;
 
+    [Header("Wave Manager and Agent List")]
     [SerializeField] private WaveManager waveManager;
-
     [SerializeField] private List<GameObject> agentList;
 
+    [Space]
+    [Header("Wave integers")]
+    public int waveNumber;
     public int maxSpawnedAgents; //Maximum agents that can be spawned at any time, independent from the wave limit
     public int agentsPerWave; //Max agents that can be spawned in a single wave
-    private int totalSpawnedAgents = 0; //Keeps track of all agents spawned during a wave
+    [SerializeField] private int agentsSpawnedInWave = 0; //Keeps track of all agents spawned during a wave
+    [SerializeField] private int waveCooldown = 10;
 
-    public bool spawnAgents = false;
+    [Space]
+    [Header("Wave bools")]
+    public bool spawnAgents = true;
+    public bool disableSpawnTemp = false;
 
     private void Awake()
     {
@@ -34,51 +42,80 @@ public class AIManager : MonoBehaviour
         agentList = new List<GameObject>();
     }
 
+    private void Start()
+    {
+        Debug.Log("Game start");
+        StartCoroutine(WaveCooldown(waveCooldown));
+    }
+
     private void Update()
     {
         if (spawnAgents)
         {
-            ValidateSpawn();
-            Debug.Log("Begin Spawning");
+            if (!disableSpawnTemp)
+            {
+                ValidateSpawn();
+            }
+            else
+            {
+                CheckForAgentDeath();
+            }
         }
     }
 
     void ValidateSpawn() //Method that spawns AI agents. Will only spawn if valid conditionals
     {
-        if (totalSpawnedAgents < agentsPerWave) //If number of agents spawned exceeds the wave limit
+        if (agentsSpawnedInWave >= agentsPerWave)
+        {
+            if (agentList.Count <= 0)
+            {
+                StartCoroutine(WaveCooldown(waveCooldown));
+                spawnAgents = false;
+                Debug.Log("This works");
+                waveManager.waveComplete = true;
+                
+            }
+        }
+
+        else if (agentsSpawnedInWave < agentsPerWave) //If number of agents spawned exceeds the wave limit
         {
             foreach (GameObject agent in waveManager.pooledAgents) //Goes through list
             {
-                if (totalSpawnedAgents >= agentsPerWave) //If spawned agents exceeds wave limit, exit loop
+                if (agentList.Count >= maxSpawnedAgents) //If the spawn list exceeds max amount of enemies existing at any one time, exit loop
+                {
+                    disableSpawnTemp = true;
+                    Debug.Log("Spawning temporarily disabled");
+                    break;
+                }
+
+                if (agentsSpawnedInWave >= agentsPerWave) //If spawned agents exceeds wave limit, exit loop
                 {
                     spawnAgents = false;
                     break;
                 }
 
-                if (agentList.Count >= maxSpawnedAgents) //If the spawn list exceeds max amount of enemies existing at any one time, exit loop
+                if (!agentList.Contains(agent)) //Sees if object in question is on the agent list. If not, it is added, enabled, and spawned according to the spawn algorithm
                 {
-                    break;
-                }
-
-                /*FOR FUTURE DEVELOPMENT
-                 *
-                 *Decide what type of enemy to spawn here. This will be based off of a predetermined list of enemies made by the WaveManager (Maybe)
-                 */
-
-                if (!agentList.Contains(agent)) //Sees if object in question is on the agent list. If not, it is added and enabled
-                {
-                    /*FOR FUTURE DEVELOPMENT
-                     * 
-                     * This is where individual spawning algorithms will be called. Each enemy spawns in a different location based 
-                     * on their type. GunPotatos rise up out of the ground, meanwhile other enemies may spawn in dedicated spawn zones.
-                     * For now, this portion of the code will only spawn GunPotatos
-                     */
                     agentList.Add(agent);
                     agent.SetActive(true);
-                    totalSpawnedAgents++;
+                    SetAgentSpawnPosition(agent);
+                    agentsSpawnedInWave++;
                 }
             }
         }
+    }
+
+    void CheckForAgentDeath()
+    {
+        if(agentList.Count < maxSpawnedAgents)
+        {
+            disableSpawnTemp = false;
+        }
+    }
+
+    void SetAgentSpawnPosition(GameObject agent)
+    {
+
     }
 
     #region ListMethods
@@ -109,17 +146,28 @@ public class AIManager : MonoBehaviour
     }
     #endregion
 
-    public void StartWave(int numberOfAgents)
+    #region WaveMethods
+    public void StartWave()
     {
         GetWaveParameters();
         spawnAgents = true;
-        totalSpawnedAgents = 0;
+        agentsSpawnedInWave = 0;
+    }
+
+    public IEnumerator WaveCooldown(int waitTime)
+    {
+        Debug.Log("Wave Ended");
+        yield return new WaitForSeconds(waitTime);
+        Debug.Log("Cooldown over");
+        StartWave();
     }
 
     private void GetWaveParameters()
     {
+        waveNumber = waveManager.WaveNumber;
         maxSpawnedAgents = waveManager.MaxSpawnedAgents;
         agentsPerWave = waveManager.WaveStrength;
     }
+    #endregion
 
 }
