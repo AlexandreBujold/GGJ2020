@@ -63,10 +63,10 @@ public class WaveManager : MonoBehaviour
         }
 
         ////DEBUG STATEMENT////
-        if(Input.GetKeyDown(KeyCode.Q))
+        if(waveComplete)
         {
             CreateWaveParameters();
-            
+            Debug.Log("ADVANCED WAVE WITH " + WaveNumber + " " + WaveStrength + " " + MaxSpawnedAgents);
         }
         ////DEBUG STATEMENT////
     }
@@ -76,6 +76,6 @@ public class WaveManager : MonoBehaviour
         WaveNumber++;
         WaveStrength = 5 + (WaveNumber * 8) + ((int)Mathf.Sqrt(WaveNumber * 8));
         MaxSpawnedAgents = 10 + (WaveNumber * 5);
-        Debug.Log(MaxSpawnedAgents);
+        waveComplete = false;
     }
 }
