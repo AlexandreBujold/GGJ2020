@@ -7,8 +7,9 @@ public class HandController : MonoBehaviour
 
     // Responsible for picking up and dropping items
     [Header("Object Info")]
+    //public GameObject myCamera;
     public GameObject heldItem;
-    public Transform heldPosition;
+    public Transform holdTransform;
 
     [Space]
     [Header("Raycast Properties")]
@@ -24,7 +25,7 @@ public class HandController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.forward, out hit, raycastRange, mask.value))
@@ -34,11 +35,15 @@ public class HandController : MonoBehaviour
                     HoldItem(hit.collider.gameObject);
                 }
             }
+            else
+            {
+                DropItem();
+            }
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0))
         {
-            DropItem();
+            ActivateHeldItem();
         }
     }
 
@@ -50,12 +55,14 @@ public class HandController : MonoBehaviour
         }
 
         
-        if (heldPosition != null)
+        if (holdTransform != null)
         {
-            item.transform.parent = transform.parent;
             heldItem = item;
-            heldItem.transform.position = heldPosition.position;
-            heldItem.transform.rotation = heldPosition.rotation;
+            heldItem.transform.position = holdTransform.position;
+            heldItem.transform.rotation = holdTransform.rotation;
+            heldItem.transform.forward = transform.forward;
+
+            item.transform.parent = transform.parent;
             
             Rigidbody itemRB = heldItem.GetComponentInChildren<Rigidbody>();
 
@@ -82,6 +89,18 @@ public class HandController : MonoBehaviour
         }
     }
 
+    public void ActivateHeldItem()
+    {
+        if (heldItem != null)
+        {
+            IActivatable item = heldItem.GetComponentInChildren<IActivatable>();
+            if (item != null)
+            {
+                item.Activate();
+            }
+        }
+    }
+    
     private void OnDrawGizmos() 
     {
         Debug.DrawRay(transform.position, transform.forward*raycastRange, Color.red);
