@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1356732447454401830}
   - component: {fileID: 1356732447454401829}
+  - component: {fileID: 5291902822345423905}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,6 +55,31 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5291902822345423905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356732447454401828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f48ca1f0b63a3e478e78eb2209e4369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeLastHit: 0
+  timeLastHealed: 0
+  heal: 1
+  startHealth: 5
+  maxHealth: 5
+  minHealth: 0
+  invincible: 1
+  invincibleOnStart: 1
+  invincibilityTime: 1
+  timeSinceLastHit: 0
+  regenerate: 1
+  regenerationRate: 1
+  timeSinceHitToRegenerate: 3
 --- !u!1 &1356732448151316235
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,6 +467,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1356732447454401830}
     m_Modifications:
+    - target: {fileID: 3228770941254320634, guid: 53e47ce6905d75c48b1a3ee0ce3c019f,
+        type: 3}
+      propertyPath: m_Name
+      value: Player UI
+      objectReference: {fileID: 0}
     - target: {fileID: 6713176199269367616, guid: 53e47ce6905d75c48b1a3ee0ce3c019f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -545,11 +576,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3228770941254320634, guid: 53e47ce6905d75c48b1a3ee0ce3c019f,
-        type: 3}
-      propertyPath: m_Name
-      value: Player UI
       objectReference: {fileID: 0}
     - target: {fileID: 3146654084468646697, guid: 53e47ce6905d75c48b1a3ee0ce3c019f,
         type: 3}

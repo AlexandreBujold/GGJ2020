@@ -71,6 +71,12 @@ public class HandController : MonoBehaviour
                 itemRB.isKinematic = true;
             }
         }
+
+        ShockShot shot = heldItem.GetComponentInChildren<ShockShot>();
+        if (shot != null)
+        {
+            shot.drawGizmos = true;
+        }
     }
 
     public void DropItem()
@@ -82,6 +88,12 @@ public class HandController : MonoBehaviour
             if (itemRB != null)
             {
                 itemRB.isKinematic = false;
+            }
+
+            ShockShot shot = heldItem.GetComponentInChildren<ShockShot>();
+            if (shot != null)
+            {
+                shot.drawGizmos = false;
             }
 
             heldItem.transform.SetParent(null, true);

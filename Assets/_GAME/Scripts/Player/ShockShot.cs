@@ -18,6 +18,7 @@ public class ShockShot : Weapon
     public List<Ray> rays;
     [Space]
     public LayerMask hitMask;
+    public bool drawGizmos = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +37,7 @@ public class ShockShot : Weapon
         {
             //Activate
             Debug.Log("Shock Shot has been fired!!");
-
+            
             List<Ray> rayShots = new List<Ray>();
 
             //Get left most spread that the shot will follow, and rotate incrementally by angleBetweenShots
@@ -62,7 +63,6 @@ public class ShockShot : Weapon
                         if (hitEffect != null)
                         {
                             Instantiate(hitEffect, enemy.transform.position, Quaternion.identity);
-                            Debug.Log("spawned");
                         }
                         enemy.Kill();
                     }
@@ -87,30 +87,33 @@ public class ShockShot : Weapon
     }
 
     private void OnDrawGizmos() {
-        if (rays != null)
+        if (drawGizmos)
         {
-            foreach (Ray ray in rays)
+            if (rays != null)
             {
-                Gizmos.color = Color.magenta;
-                Gizmos.DrawWireSphere(ray.GetPoint(range), 0.5f);
+                foreach (Ray ray in rays)
+                {
+                    Gizmos.color = Color.magenta;
+                    Gizmos.DrawWireSphere(ray.GetPoint(range), 0.5f);
+                }
             }
-        }
+            
+            Gizmos.color = Color.yellow;
+            float theta1 = - (spreadAngle / 2);
+            float theta2 =  (spreadAngle / 2);
+
+            Ray leftRay = new Ray(transform.position, transform.forward);
+            Ray rightRay = new Ray(transform.position, transform.forward);
+
         
-        Gizmos.color = Color.yellow;
-        float theta1 = - (spreadAngle / 2);
-        float theta2 =  (spreadAngle / 2);
+            leftRay.direction = Quaternion.Euler(0, theta1, 0) * leftRay.direction;
+            rightRay.direction = Quaternion.Euler(0, theta2, 0) * rightRay.direction;
 
-        Ray leftRay = new Ray(transform.position, transform.forward);
-        Ray rightRay = new Ray(transform.position, transform.forward);
+            Gizmos.DrawRay(transform.position, leftRay.direction * 10f);
+            Gizmos.DrawRay(transform.position, rightRay.direction * 10f);
 
-       
-        leftRay.direction = Quaternion.Euler(0, theta1, 0) * leftRay.direction;
-        rightRay.direction = Quaternion.Euler(0, theta2, 0) * rightRay.direction;
-
-        Gizmos.DrawRay(transform.position, leftRay.direction * 10f);
-        Gizmos.DrawRay(transform.position, rightRay.direction * 10f);
-
-        Gizmos.color = Color.green;
-        Gizmos.DrawRay(transform.position, transform.forward * 10f);
+            Gizmos.color = Color.green;
+            Gizmos.DrawRay(transform.position, transform.forward * 10f);
+        }
     }
 }
