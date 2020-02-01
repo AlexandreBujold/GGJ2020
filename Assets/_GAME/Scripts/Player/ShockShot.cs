@@ -32,8 +32,6 @@ public class ShockShot : Weapon
 
     public override void Activate()
     {
-        
-
         if (StartCooldown()) //Can go on cooldown, which means it can be used
         {
             //Activate

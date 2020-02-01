@@ -56,7 +56,7 @@ MonoBehaviour:
     type: 3}
   hitMask:
     serializedVersion: 2
-    m_Bits: 567
+    m_Bits: 1024
 --- !u!136 &129128780201809619
 CapsuleCollider:
   m_ObjectHideFlags: 0
