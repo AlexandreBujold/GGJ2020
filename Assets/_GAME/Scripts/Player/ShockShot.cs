@@ -11,6 +11,9 @@ public class ShockShot : Weapon
     public float numberOfShotsPerAmmo = 3;
 
     public float ammo = 5;
+    [Space]
+    public ParticleSystem effect;
+    public GameObject hitEffect;
 
     public List<Ray> rays;
     [Space]
@@ -54,15 +57,24 @@ public class ShockShot : Weapon
                 
                 if (hit.collider != null)
                 {
-                    Enemy enemy = hit.collider.gameObject.GetComponentInChildren<Enemy>();
+                    Enemy enemy = hit.collider.gameObject.GetComponentInParent<Enemy>();
                     if (enemy != null)
                     {
                         Debug.Log(enemy.gameObject.name + " KILLED!", enemy.gameObject);
+                        if (hitEffect != null)
+                        {
+                            Instantiate(hitEffect, enemy.transform.position, Quaternion.identity);
+                            Debug.Log("spawned");
+                        }
                         enemy.Kill();
                     }
                 }
             }
             rays = rayShots;
+            if (effect != null)
+            {
+                effect.Play();
+            }
         }
 
         
@@ -70,7 +82,10 @@ public class ShockShot : Weapon
 
     public override void Deactivate()
     {
-        
+        if (effect != null)
+        {
+            effect.Stop();
+        }
     }
 
     private void OnDrawGizmos() {
