@@ -60,9 +60,9 @@ crashlytics-build.properties
 
 
 # # FMOD files
-# SecondMouse/FMODstudioProject/SecondMouseSound/Plugins/FMOD/Resources/FMODStudioCache.asset
-# SecondMouse/FMODstudioProject/SecondMouseSound/StreamingAssets/*.bank
-# fmod_editor.log
+GGJ2020/FMOD/GGJ2020/Plugins/FMOD/Resources/FMODStudioCache.asset
+GGJ2020/FMOD/GGJ2020/StreamingAssets/*.bank
+fmod_editor.log
 Assets/_GAME/Art/Images.meta
 Assets/_GAME/Art/Models.meta
 Assets/_GAME/Audio.meta
