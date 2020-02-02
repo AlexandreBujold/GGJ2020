@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour, IKillable
     public GameObject player2;
     public GameObject target;
 
+    [SerializeField] private GameObject batteryPrefab;
+
     [SerializeField] private NavMeshAgent agent;
 
     Vector3 testPos;
@@ -54,6 +56,7 @@ public class Enemy : MonoBehaviour, IKillable
 
     public void Kill()
     {
+        GenerateBattery();
         if (aiManager.CheckisInList(this.gameObject))
         {
             aiManager.RemoveFromList(this.gameObject);
@@ -87,6 +90,15 @@ public class Enemy : MonoBehaviour, IKillable
                 return player2;
             }
 
+        }
+    }
+
+    private void GenerateBattery()
+    {
+        float random = Random.value;
+        if(random < 0.05)
+        {
+            Instantiate(batteryPrefab, transform.position, Quaternion.identity);
         }
     }
 
