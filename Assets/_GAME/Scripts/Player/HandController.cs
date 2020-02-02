@@ -14,12 +14,16 @@ public class HandController : MonoBehaviour
     [Space]
     [Header("Raycast Properties")]
     public float raycastRange = 1;
-    public LayerMask mask; 
+    public LayerMask mask;
+
+    [Space]
+    [Header("Parent")]
+    public Player parentPlayer;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        parentPlayer = GetComponentInParent<Player>();
     }
 
     // Update is called once per frame
@@ -75,7 +79,9 @@ public class HandController : MonoBehaviour
         if (shot != null)
         {
             shot.drawGizmos = true;
+            parentPlayer.m_gun = shot;
         }
+        
     }
 
     public void DropItem()
@@ -93,6 +99,7 @@ public class HandController : MonoBehaviour
             if (shot != null)
             {
                 shot.drawGizmos = false;
+                parentPlayer.m_gun = null;
             }
 
             heldItem.transform.SetParent(null, true);
