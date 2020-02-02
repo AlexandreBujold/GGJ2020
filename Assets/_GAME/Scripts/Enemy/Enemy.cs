@@ -125,9 +125,12 @@ public class Enemy : MonoBehaviour, IKillable
     {
         if (target != null)
         {
-            if (other.transform.GetComponentInParent<Transform>().gameObject == target)
+            if (other.transform.gameObject.name == "Collider")
             {
-                target.gameObject.GetComponent<Health>().Damage(1f);
+                if (other.transform.parent.transform.gameObject == target)
+                {
+                    target.gameObject.GetComponent<Health>().Damage(1f);
+                }
             }
         }
     }
