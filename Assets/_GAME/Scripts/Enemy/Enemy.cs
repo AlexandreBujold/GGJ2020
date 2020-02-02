@@ -123,7 +123,7 @@ public class Enemy : MonoBehaviour, IKillable
     {
         if (target != null)
         {
-            if (other.transform.parent.transform.gameObject == target)
+            if (other.transform.GetComponentInParent<Transform>().gameObject == target)
             {
                 target.gameObject.GetComponent<Health>().Damage(1f);
             }
