@@ -67,11 +67,26 @@ public class Enemy : MonoBehaviour, IKillable
 
         if (randomPlayer == 0)
         {
-            return player1;
+            if(player1 == null)
+            {
+                return player2;
+            }
+            else
+            {
+                return player1;
+            }
         }
         else
         {
-            return player2;
+            if (player2 == null)
+            {
+                return player1;
+            }
+            else
+            {
+                return player2;
+            }
+
         }
     }
 
