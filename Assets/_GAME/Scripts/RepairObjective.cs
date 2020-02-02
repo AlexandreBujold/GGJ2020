@@ -56,7 +56,7 @@ public class RepairObjective : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, shockRadius);
     }
 
-    public void DepositMaterial()
+    private void DepositMaterial()
     {
         depositedMaterialCount++;
         if(depositedMaterialCount >= activationCost)

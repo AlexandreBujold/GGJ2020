@@ -94,7 +94,6 @@ public class Health : MonoBehaviour
             timeLastHit = Time.time;
         }
         onHealed.AddListener(UpdateHealthUI);
-        onDamaged.AddListener(UpdateHealthUI);
     }
 
     public void InitializeEvents()
