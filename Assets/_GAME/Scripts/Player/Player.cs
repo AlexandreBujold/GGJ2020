@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Sirenix.OdinInspector;
+using GamepadInput;
 
 public class Player : MonoBehaviour
 {
-
+    public GamePad.Index controllerIndex;
+    [Space]
     [Header("Components")]
     public PlayerController m_playerController;
     public Health m_Health;
@@ -39,7 +41,21 @@ public class Player : MonoBehaviour
             m_Health.onDamaged.AddListener(m_playerAnimation.SetHurtTrue);
             m_Health.onDeath.AddListener(m_playerAnimation.SetAliveFalse);
         }
+        
+        if (m_cameraController != null)
+        {
+            m_cameraController.controllerIndex = this.controllerIndex;
+        }
 
+        if (m_playerController != null)
+        {
+            m_playerController.controllerIndex = this.controllerIndex;
+        }
+
+        if (m_HandController != null)
+        {
+            m_HandController.controllerIndex = this.controllerIndex;
+        }
     }
 
     // Update is called once per frame

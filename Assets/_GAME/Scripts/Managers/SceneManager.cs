@@ -91,6 +91,11 @@ public class SceneManager : MonoBehaviour
         ChangeScene(SceneIndexes.END);
     }
 
+    public void ChangeSceneToStart()
+    {
+        ChangeScene(SceneIndexes.MENU);
+    }
+
     public IEnumerator TrackLoadProgress(SceneIndexes scene, bool setActiveOnLoad) //Track all scenes that are loading, and calculate a load progress from that. Once scene is loaded, set it as active
     {
         float loadProgress;
