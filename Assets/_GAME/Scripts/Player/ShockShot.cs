@@ -24,6 +24,7 @@ public class ShockShot : Weapon
     void Start()
     {
         ammo = 25f;
+        maxAmmo = ammo;
     }
 
     // Update is called once per frame

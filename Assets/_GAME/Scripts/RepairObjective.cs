@@ -92,6 +92,10 @@ public class RepairObjective : MonoBehaviour
     private void ReloadAllGuns()
     {
         ShockShot[] gunList = FindObjectsOfType<ShockShot>();
+        if(gunList == null)
+        {
+            return;
+        }
         foreach(ShockShot gun in gunList)
         {
             gun.UpdateAmmo();
