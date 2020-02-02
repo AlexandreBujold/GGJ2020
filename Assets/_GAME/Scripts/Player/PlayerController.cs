@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GamepadInput;
 
 public class PlayerController : MonoBehaviour
 {
 
     #region Variables
     [Header("Controller Configuration")]
+    public GamePad.Index controllerIndex;
+    [Space]
     [Tooltip("Player's movement will be relative to the perspective of the Camera.")]
     public bool cameraRelMovement = false;
     [Tooltip("Player will constantly accelerate (move) in the direction it is facing.")]
@@ -102,14 +105,14 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Movement
-        rawMovementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        rawMovementInput = GamePad.GetAxis(GamePad.Axis.LeftStick, controllerIndex);
         Vector3 movementValue = Vector3.zero;
 
         //Calculate Values (all scaled to Time.deltaTime already)
         movementValue = constForwardMovement == true ? CalculatePlanarMovement(new Vector2(0, 1), true) : CalculatePlanarMovement(rawMovementInput, false);
 
         //Combine Movement Values
-        movementValue = new Vector3(movementValue.x, CalculateGravityAndJumpMovement(Input.GetButtonDown("Jump")), movementValue.z);
+        movementValue = new Vector3(movementValue.x, CalculateGravityAndJumpMovement(GamePad.GetButtonDown(GamePad.Button.A, controllerIndex)), movementValue.z);
 
         //Apply Values
         if (m_characterController != null)

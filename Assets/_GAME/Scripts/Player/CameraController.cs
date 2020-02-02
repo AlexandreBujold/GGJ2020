@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GamepadInput;
 
 //https://www.youtube.com/watch?v=EhNzQyGDnHk
 public class CameraController : MonoBehaviour
 {
+    public GamePad.Index controllerIndex;
+    [Space]
     [Header("Camera View Configuration")]
     public float transitionTime;
     public bool transitionView = true;
@@ -53,7 +56,7 @@ public class CameraController : MonoBehaviour
             if (cameraTransform != null)
             {
                 //FPS Input
-                Vector2 rotationInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+                Vector2 rotationInput = GamePad.GetAxis(GamePad.Axis.RightStick, controllerIndex);
 
                 //Calculate Values (all scaled to Time.deltaTime already)
                 Vector3 rotVal = Vector3.zero;

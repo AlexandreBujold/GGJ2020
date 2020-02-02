@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GamepadInput;
 
 public class HandController : MonoBehaviour
 {
 
     // Responsible for picking up and dropping items
+    public GamePad.Index controllerIndex;
+    [Space]
     [Header("Object Info")]
     //public GameObject myCamera;
     public GameObject heldItem;
@@ -29,7 +32,7 @@ public class HandController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (GamePad.GetButtonDown(GamePad.Button.X, controllerIndex))
         {
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.forward, out hit, raycastRange, mask.value))
@@ -45,7 +48,7 @@ public class HandController : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (GamePad.GetButtonDown(GamePad.Button.LeftShoulder, controllerIndex) || GamePad.GetButtonDown(GamePad.Button.RightShoulder, controllerIndex) || GamePad.GetTrigger(GamePad.Trigger.LeftTrigger, controllerIndex, false) != 0 || GamePad.GetTrigger(GamePad.Trigger.RightTrigger, controllerIndex, false) != 0)
         {
             ActivateHeldItem();
         }
