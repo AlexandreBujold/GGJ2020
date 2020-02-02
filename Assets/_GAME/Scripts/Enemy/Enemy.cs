@@ -129,17 +129,31 @@ public class Enemy : MonoBehaviour, IKillable
             {
                 if (other.transform.parent.transform.gameObject == target)
                 {
+                    if (animator != null)
+                    {
+                        animator.SetBool("Attack", true);
+                        StartCoroutine(SetAttackFalse());
+                    }
+
                     target.gameObject.GetComponent<Health>().Damage(1f);
                 }
             }
         }
     }
 
+    public IEnumerator SetAttackFalse()
+    {
+        yield return new WaitForSeconds(0.25f);
+        animator.SetBool("Attack", false);
+    }
+
+
+
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(testPos, 1f);
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(target.transform.position, 1f);
+        // Gizmos.color = Color.red;
+        // Gizmos.DrawWireSphere(testPos, 1f);
+        // Gizmos.color = Color.blue;
+        // Gizmos.DrawWireSphere(target.transform.position, 1f);
     }
 }

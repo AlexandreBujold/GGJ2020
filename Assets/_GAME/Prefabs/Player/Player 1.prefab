@@ -62,6 +62,122 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!54 &3422370332067623085
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6451363471690529521}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &84566307649160718
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6451363471690529521}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.001
+  m_Height: 0.018
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &5534635746342733072
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6390245863616760554}
+  - component: {fileID: 3743542292575608842}
+  - component: {fileID: 3110675242519320371}
+  - component: {fileID: 5149256353882764043}
+  m_Layer: 11
+  m_Name: Footstep
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6390245863616760554
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5534635746342733072}
+  m_LocalRotation: {x: 0.09341537, y: 0.000008877803, z: 0.00000091347556, w: 0.9956273}
+  m_LocalPosition: {x: 0.012631342, y: 0.0073753754, z: -0.0020985324}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8213671621653613068}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3743542292575608842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5534635746342733072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Ground
+  Event: event:/SoundFX/Player/Player_Footsteps
+  PlayEvent: 3
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!54 &3110675242519320371
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5534635746342733072}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &5149256353882764043
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5534635746342733072}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.001
+  m_Height: 0.03
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &4017979833928710622
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -159,11 +275,63 @@ PrefabInstance:
       propertyPath: m_subTextObjects.Array.data[1]
       value: 
       objectReference: {fileID: 6685531052852081681}
+    - target: {fileID: 1229093485023189030, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1229093485023189030, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.00199
+      objectReference: {fileID: 0}
+    - target: {fileID: 7945866774036841263, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: m_Name
+      value: Footstep
+      objectReference: {fileID: 0}
+    - target: {fileID: 6954442481798860798, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: Event
+      value: event:/SoundFX/Player/Player_Footsteps
+      objectReference: {fileID: 0}
+    - target: {fileID: 6954442481798860798, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6954442481798860798, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6954442481798860798, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: CollisionTag
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6954442481798860798, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: PlayEvent
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06e1dfdd3bd39d142add43ff40b0be09, type: 3}
 --- !u!4 &2672516564674473208 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1356732447454401830, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+    type: 3}
+  m_PrefabInstance: {fileID: 4017979833928710622}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6451363471690529521 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7945866774036841263, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+    type: 3}
+  m_PrefabInstance: {fileID: 4017979833928710622}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8213671621653613068 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5061599083414565842, guid: 06e1dfdd3bd39d142add43ff40b0be09,
     type: 3}
   m_PrefabInstance: {fileID: 4017979833928710622}
   m_PrefabAsset: {fileID: 0}

@@ -53,7 +53,8 @@ MonoBehaviour:
   target: {fileID: 0}
   batteryPrefab: {fileID: 453864112892553175, guid: 4a673cfb4d6c1ba46b393eb25e57e168,
     type: 3}
-  agent: {fileID: 0}
+  agent: {fileID: 3306429357484170318}
+  animator: {fileID: 3166231814029745764}
 --- !u!195 &3306429357484170318
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -182,6 +183,12 @@ PrefabInstance:
 --- !u!4 &5006512735213335326 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: ebf1a33f924924bc9b6fdb87d7f07f68,
+    type: 3}
+  m_PrefabInstance: {fileID: 407214084}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3166231814029745764 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: ebf1a33f924924bc9b6fdb87d7f07f68,
     type: 3}
   m_PrefabInstance: {fileID: 407214084}
   m_PrefabAsset: {fileID: 0}
