@@ -78,14 +78,20 @@ public class RepairObjective : MonoBehaviour
         Shock();
     }
 
+    private IEnumerator Teleport(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        transform.position = RandomizePosition();
+    }
+
     private void Shock()
     {
         waveManager.ReturnAgentsToPool(killableZombies);
         killableZombies.Clear();
         shockRadius += 5f;
         shockCollider.radius = shockRadius;
-        transform.position = RandomizePosition();
         ReloadAllGuns();
+        StartCoroutine(Teleport(delay));
     }
 
     private Vector3 RandomizePosition()
