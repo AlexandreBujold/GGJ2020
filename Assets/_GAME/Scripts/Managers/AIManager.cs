@@ -108,8 +108,8 @@ public class AIManager : MonoBehaviour
                 if (!agentList.Contains(agent)) //Sees if object in question is on the agent list. If not, it is added, enabled, and spawned according to the spawn algorithm
                 {
                     agentList.Add(agent);
-                    agent.SetActive(true);
                     SetAgentSpawnPosition(agent);
+                    agent.SetActive(true);
                     agentsSpawnedInWave++;
                 }
             }

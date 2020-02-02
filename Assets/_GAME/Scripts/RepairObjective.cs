@@ -95,7 +95,6 @@ public class RepairObjective : MonoBehaviour
             if (!killableZombies.Contains(other.gameObject))
             {
                 killableZombies.Add(other.gameObject);
-                Debug.Log(other.gameObject);
             }
         }
     }

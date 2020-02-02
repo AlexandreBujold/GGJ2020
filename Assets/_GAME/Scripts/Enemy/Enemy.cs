@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour, IKillable
 
     public AIManager aiManager;
     public RepairObjective repairObjective;
+    public GameObject player1;
+    public GameObject player2;
     public GameObject target;
 
     [SerializeField] private NavMeshAgent agent;
@@ -19,18 +21,19 @@ public class Enemy : MonoBehaviour, IKillable
     {
         aiManager = GameObject.Find("Singletons").GetComponent<AIManager>();
         agent = GetComponent<NavMeshAgent>();
+        player1 = GameObject.Find("Player 1");
+        player2 = GameObject.Find("Player 2");
     }
 
     private void Start()
     {
         aiManager = GameObject.Find("Singletons").GetComponent<AIManager>();
-        target = GameObject.Find("Player 1");
     }
 
     private void OnEnable()
     {
 
-        target = GameObject.Find("Player 1");
+        target = GetInitialTarget();
         alive = true;
         aiManager.AddToList(this.gameObject);
         //repairObjective.AddToList(this.gameObject);
@@ -56,6 +59,20 @@ public class Enemy : MonoBehaviour, IKillable
             aiManager.RemoveFromList(this.gameObject);
         }
         gameObject.SetActive(false);
+    }
+
+    private GameObject GetInitialTarget()
+    {
+        float randomPlayer = Random.Range(0, 2);
+
+        if (randomPlayer == 0)
+        {
+            return player1;
+        }
+        else
+        {
+            return player2;
+        }
     }
 
 
