@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ZombieBear.Guts
-  m_Shader: {fileID: -6465566751694194690, guid: 95d74f64e5a3b43909d536fd38de6ff0,
+  m_Shader: {fileID: -6465566751694194690, guid: a2219666417a14607a45e16566a412e8,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
