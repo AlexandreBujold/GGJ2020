@@ -43,17 +43,22 @@ public class Health : MonoBehaviour
     [HideInInspector] public List<Coroutine> healingCoroutines;
     [HideInInspector] public List<Coroutine> damagingCoroutines;
     [HideInInspector] public Coroutine regenerationCoroutine;
+    [HideInInspector] public Coroutine checkHealthCoroutine;
 
     //Events
     public OnHealth onHealed;
     public OnHealth onDamaged;
     public OnHealth onDeath;
+    public OnHealth onCheckDead;
+
+    public bool isDead;
 
     // Start is called before the first frame update
     void Awake()
     {
         Setup();
         //healingCoroutines.Add(StartCoroutine(TestRoutine()));
+        checkHealthCoroutine = StartCoroutine(CheckHealth(0.5f));
     }
 
     // Update is called once per frame
@@ -67,7 +72,7 @@ public class Health : MonoBehaviour
     [Button]
     public void TestHealingAmountAtRate()
     {
-        StartCoroutine(HealAmountAtRate(5, 0.1f));
+        checkHealthCoroutine = StartCoroutine(HealAmountAtRate(5, 0.1f));
     }
 
     [Button]
@@ -78,7 +83,9 @@ public class Health : MonoBehaviour
 
     public void Setup()
     {
-        SetHealth(startHealth);  
+        SetHealth(startHealth);
+
+        isDead = false;
 
         healingCoroutines = new List<Coroutine>();
         damagingCoroutines = new List<Coroutine>();
@@ -412,6 +419,29 @@ public class Health : MonoBehaviour
             SetRegeneration(false);
         }
         
+    }
+
+    public IEnumerator CheckHealth(float waitTime)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(waitTime);
+            if (health <= 0f)
+            {
+                if (isDead == false)
+                {
+                    isDead = true;
+                    onCheckDead.Invoke(this);
+                }
+            }
+            if (health > 0)
+            {
+                if (isDead == true)
+                {
+                    isDead = false;
+                }
+            }
+        }
     }
 
 }

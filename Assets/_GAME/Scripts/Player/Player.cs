@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public CameraController m_cameraController;
     public PlayerAnimation m_playerAnimation;
     public ShockShot m_gun;
+    public SceneManager m_sceneManager;
     public WaveManager m_waveManager;
     public RepairObjective m_objective;
 
@@ -29,6 +30,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_sceneManager = GameObject.Find("SceneManager").GetComponent<SceneManager>();
         m_waveManager = GameObject.Find("Singletons").GetComponent<WaveManager>();
         m_objective = GameObject.Find("Objective").GetComponent<RepairObjective>();
         if(m_objective == null)
@@ -40,6 +42,7 @@ public class Player : MonoBehaviour
         {
             m_Health.onDamaged.AddListener(m_playerAnimation.SetHurtTrue);
             m_Health.onDeath.AddListener(m_playerAnimation.SetAliveFalse);
+            m_Health.onDeath.AddListener(m_sceneManager.IncrementPlayerDeath);
         }
         
         if (m_cameraController != null)
