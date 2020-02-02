@@ -305,6 +305,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 1.1000004
       objectReference: {fileID: 0}
+    - target: {fileID: 4660756653047151155, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: m_PlaneDistance
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7711706605120380462, guid: 06e1dfdd3bd39d142add43ff40b0be09,
         type: 3}
       propertyPath: m_subTextObjects.Array.data[1]
@@ -349,6 +354,31 @@ PrefabInstance:
         type: 3}
       propertyPath: PlayEvent
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628692837437506804, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2897529839804455538, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2444626662319240982, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677342948992074073, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747764522044237288, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 3895
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06e1dfdd3bd39d142add43ff40b0be09, type: 3}

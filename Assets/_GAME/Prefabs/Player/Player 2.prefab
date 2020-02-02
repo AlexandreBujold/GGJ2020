@@ -356,6 +356,11 @@ PrefabInstance:
       propertyPath: m_NormalizedViewPortRect.height
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1356732448702310987, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1356732448327241074, guid: 06e1dfdd3bd39d142add43ff40b0be09,
         type: 3}
       propertyPath: mask.m_Bits
@@ -375,6 +380,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 1.1000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660756653047151155, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: m_PlaneDistance
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5244618404122334779, guid: 06e1dfdd3bd39d142add43ff40b0be09,
         type: 3}
@@ -560,6 +570,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628692837437506804, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4882200029641682984, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e350b825de08d42eeb71a291c4328ab7, type: 2}
+    - target: {fileID: 2897529839804455538, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2444626662319240982, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677342948992074073, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747764522044237288, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 5943
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06e1dfdd3bd39d142add43ff40b0be09, type: 3}
