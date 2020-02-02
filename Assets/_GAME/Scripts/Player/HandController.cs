@@ -59,10 +59,9 @@ public class HandController : MonoBehaviour
         {
             heldItem = item;
             heldItem.transform.position = holdTransform.position;
-            heldItem.transform.rotation = holdTransform.rotation;
             heldItem.transform.forward = transform.forward;
-
             item.transform.parent = transform.parent;
+            heldItem.transform.localRotation = holdTransform.localRotation;
             
             Rigidbody itemRB = heldItem.GetComponentInChildren<Rigidbody>();
 
