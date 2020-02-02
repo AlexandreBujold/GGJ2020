@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using GamepadInput;
 
 public class SceneManager : MonoBehaviour
 {
@@ -64,6 +65,13 @@ public class SceneManager : MonoBehaviour
         SetLoadingScreen(loadingScreenVisible, false);
         //Reset loadingScenes list
         loadingScenes = new List<AsyncOperation>();
+    }
+
+    private void Update() {
+        if (GamePad.GetButtonDown(GamePad.Button.A, GamePad.Index.Any) && currentScene == SceneIndexes.MENU)
+        {
+            ChangeToGameplay();
+        }
     }
 
     #region Scene Loading and Changing
