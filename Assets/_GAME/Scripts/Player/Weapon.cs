@@ -9,6 +9,11 @@ public class Weapon : MonoBehaviour, IActivatable
     public float cooldown { get; set; }
     public Coroutine cooldownCoroutine = null;
 
+    private void Awake()
+    {
+        cooldown = 0.75f;
+    }
+
     public virtual void Activate()
     {
         if (StartCooldown()) //Can go on cooldown, which means it can be used
@@ -28,7 +33,7 @@ public class Weapon : MonoBehaviour, IActivatable
     {
         if (cooldownCoroutine == null)
         {
-            cooldownCoroutine = StartCoroutine(Cooldown(cooldown));
+            cooldownCoroutine = StartCoroutine(Cooldown(cooldown));;
             return true;
         }
         return false;
