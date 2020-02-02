@@ -56,7 +56,7 @@ public class RepairObjective : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, shockRadius);
     }
 
-    private void DepositMaterial()
+    public void DepositMaterial()
     {
         depositedMaterialCount++;
         if(depositedMaterialCount >= activationCost)
@@ -95,6 +95,7 @@ public class RepairObjective : MonoBehaviour
             if (!killableZombies.Contains(other.gameObject))
             {
                 killableZombies.Add(other.gameObject);
+                Debug.Log(other.gameObject);
             }
         }
     }
