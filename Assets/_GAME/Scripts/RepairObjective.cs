@@ -15,6 +15,8 @@ public class RepairObjective : MonoBehaviour
 
     public LayerMask zombieLayer;
 
+    public float delay = 1.5f;
+
     [SerializeField] private float shockRadius;
     [SerializeField] private int activationCost;
     [SerializeField] private int depositedMaterialCount;
@@ -63,8 +65,23 @@ public class RepairObjective : MonoBehaviour
         {
             depositedMaterialCount = 0;
             activationCost++;
-            Shock();
+            Debug.Log("START CHARGE");
+            StartCoroutine(ChargeUp(delay));
+            //Shock();
         }
+    }
+
+    private IEnumerator ChargeUp(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        Debug.Log("KABOOM");
+        Shock();
+    }
+
+    private IEnumerator Teleport(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        transform.position = RandomizePosition();
     }
 
     private void Shock()
@@ -73,8 +90,8 @@ public class RepairObjective : MonoBehaviour
         killableZombies.Clear();
         shockRadius += 5f;
         shockCollider.radius = shockRadius;
-        transform.position = RandomizePosition();
         ReloadAllGuns();
+        StartCoroutine(Teleport(delay));
     }
 
     private Vector3 RandomizePosition()
