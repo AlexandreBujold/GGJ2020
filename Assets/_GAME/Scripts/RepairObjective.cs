@@ -10,12 +10,13 @@ public class RepairObjective : MonoBehaviour
     [SerializeField] private List<Transform> teleportPositions;
 
     private GameObject positions;
+    public GameObject explosionParticles;
 
     private SphereCollider shockCollider;
 
     public LayerMask zombieLayer;
 
-    public float delay = 1.5f;
+    public float delay = 2.6f;
 
     [SerializeField] private float shockRadius;
     [SerializeField] private int activationCost;
@@ -43,15 +44,6 @@ public class RepairObjective : MonoBehaviour
         shockCollider.radius = shockRadius;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            DepositMaterial();
-        }
-    }
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
@@ -66,6 +58,7 @@ public class RepairObjective : MonoBehaviour
             depositedMaterialCount = 0;
             activationCost++;
             Debug.Log("START CHARGE");
+            Instantiate(explosionParticles, transform.position, Quaternion.identity);
             StartCoroutine(ChargeUp(delay));
             //Shock();
         }
