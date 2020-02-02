@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Objective
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - Item
   - Ground
   - Enemy
-  - 
-  - 
+  - Player1
+  - Player2
   - 
   - 
   - 

@@ -129,11 +129,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1356732448327241074, guid: 06e1dfdd3bd39d142add43ff40b0be09,
-        type: 3}
-      propertyPath: mask.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
     - target: {fileID: 5291902822345423905, guid: 06e1dfdd3bd39d142add43ff40b0be09,
         type: 3}
       propertyPath: startHealth
@@ -142,13 +137,23 @@ PrefabInstance:
     - target: {fileID: 5291902822345423905, guid: 06e1dfdd3bd39d142add43ff40b0be09,
         type: 3}
       propertyPath: minHealth
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5291902822345423905, guid: 06e1dfdd3bd39d142add43ff40b0be09,
         type: 3}
       propertyPath: healthValueText
       value: 
       objectReference: {fileID: 7681732578989588992}
+    - target: {fileID: 1356732448702310987, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 5943
+      objectReference: {fileID: 0}
+    - target: {fileID: 1356732448327241074, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: mask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 7711706605120380462, guid: 06e1dfdd3bd39d142add43ff40b0be09,
         type: 3}
       propertyPath: m_subTextObjects.Array.data[1]
