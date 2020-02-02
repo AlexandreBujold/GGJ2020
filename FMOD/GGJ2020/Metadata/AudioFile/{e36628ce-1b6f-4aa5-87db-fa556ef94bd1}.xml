@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{e36628ce-1b6f-4aa5-87db-fa556ef94bd1}">
+		<property name="assetPath">
+			<value>SoundFX/Explosion/Explosion Punchy Impact 01.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.7957142857142858</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{e3a7da60-65aa-4e21-aea8-24ee3bc8ba0a}</destination>
+		</relationship>
+	</object>
+</objects>

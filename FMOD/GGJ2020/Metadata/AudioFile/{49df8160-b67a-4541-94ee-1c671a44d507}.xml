@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{49df8160-b67a-4541-94ee-1c671a44d507}">
+		<property name="assetPath">
+			<value>SoundFX/ZomboDeath/Limb &amp; Flesh Rip 03.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.88265306122448983</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{e3a7da60-65aa-4e21-aea8-24ee3bc8ba0a}</destination>
+		</relationship>
+	</object>
+</objects>

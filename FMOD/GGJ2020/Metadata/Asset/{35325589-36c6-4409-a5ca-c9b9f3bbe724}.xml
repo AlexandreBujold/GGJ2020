@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="EncodableAsset" id="{35325589-36c6-4409-a5ca-c9b9f3bbe724}">
+		<property name="assetPath">
+			<value>SoundFX/ZomboGiblets/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{e3a7da60-65aa-4e21-aea8-24ee3bc8ba0a}</destination>
+		</relationship>
+	</object>
+</objects>

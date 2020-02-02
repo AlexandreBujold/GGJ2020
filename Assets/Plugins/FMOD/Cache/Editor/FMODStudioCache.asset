@@ -1,5 +1,296 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7661762581754528596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD/GGJ2020/Build/Desktop/Master.strings.bank
+  SubDir: 
+  lastModified: 637162447812672291
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 1580
+  Exists: 1
+--- !u!114 &-7030342008190812172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Test
+  m_EditorClassIdentifier: 
+  Path: event:/Test
+  guid: d96b437361d661479cc01a2f9f91ab86
+  Banks:
+  - {fileID: -1531732152414213338}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 286
+--- !u!114 &-5727216391067715153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SoundFX/Zombo/Groan
+  m_EditorClassIdentifier: 
+  Path: event:/SoundFX/Zombo/Groan
+  guid: f6c51f9b7c1a1e49b9ed86c7fbfa2d4b
+  Banks:
+  - {fileID: -1531732152414213338}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5006
+--- !u!114 &-4854441029647399159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SoundFX/Player/Jump
+  m_EditorClassIdentifier: 
+  Path: event:/SoundFX/Player/Jump
+  guid: af0250acdf89df48bdb79d96ea282adf
+  Banks:
+  - {fileID: -1531732152414213338}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
+--- !u!114 &-4086807334558365390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/MainMenu
+  m_EditorClassIdentifier: 
+  Path: event:/Music/MainMenu
+  guid: 4efc09cc42f98541bc8fd99adeddffc8
+  Banks:
+  - {fileID: -1531732152414213338}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 14714
+--- !u!114 &-2736414094660776508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SoundFX/Player/Pickup
+  m_EditorClassIdentifier: 
+  Path: event:/SoundFX/Player/Pickup
+  guid: ae79d2d93557324199bd968b1214cfd0
+  Banks:
+  - {fileID: -1531732152414213338}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 358
+--- !u!114 &-2410795894350325895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SoundFX/Explosion
+  m_EditorClassIdentifier: 
+  Path: event:/SoundFX/Explosion
+  guid: 3c7251144c84f543b45474fbfd33b62d
+  Banks:
+  - {fileID: -1531732152414213338}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4591
+--- !u!114 &-2385593578743931466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SoundFX/Zombo/ZomboDeath
+  m_EditorClassIdentifier: 
+  Path: event:/SoundFX/Zombo/ZomboDeath
+  guid: 460043df1cf4d243886536560bb724c1
+  Banks:
+  - {fileID: -1531732152414213338}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3277
+--- !u!114 &-2267981020860772415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SoundFX/MagicTeddyBlast
+  m_EditorClassIdentifier: 
+  Path: event:/SoundFX/MagicTeddyBlast
+  guid: 81c32276e4012c4ea3a1138ebee106ea
+  Banks:
+  - {fileID: -1531732152414213338}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 7108
+--- !u!114 &-2199292968317447420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SoundFX/Player/Shoot
+  m_EditorClassIdentifier: 
+  Path: event:/SoundFX/Player/Shoot
+  guid: a2c04f3e233d4b49a3871259b0e009f4
+  Banks:
+  - {fileID: -1531732152414213338}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3500
+--- !u!114 &-1531732152414213338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD/GGJ2020/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637162447812662415
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-822101050395242162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SoundFX/Player/Hurt
+  m_EditorClassIdentifier: 
+  Path: event:/SoundFX/Player/Hurt
+  guid: 6d573fe04d0db14490aceeae96063085
+  Banks:
+  - {fileID: -1531732152414213338}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 476
+--- !u!114 &-34127623066957791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SoundFX/MagicTeddyCharge
+  m_EditorClassIdentifier: 
+  Path: event:/SoundFX/MagicTeddyCharge
+  guid: 9e827b1729e8b948962ca4e526486a74
+  Banks:
+  - {fileID: -1531732152414213338}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5077
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,10 +303,241 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
-  EditorBanks: []
-  EditorEvents: []
+  EditorBanks:
+  - {fileID: -7661762581754528596}
+  - {fileID: -1531732152414213338}
+  EditorEvents:
+  - {fileID: 2295454974245909432}
+  - {fileID: 3426435478769728562}
+  - {fileID: 9150989442977802256}
+  - {fileID: -2410795894350325895}
+  - {fileID: -2385593578743931466}
+  - {fileID: -4086807334558365390}
+  - {fileID: -822101050395242162}
+  - {fileID: -2267981020860772415}
+  - {fileID: 4876799773490593263}
+  - {fileID: 8653721357033805716}
+  - {fileID: -34127623066957791}
+  - {fileID: -2199292968317447420}
+  - {fileID: 925672772946561888}
+  - {fileID: -2736414094660776508}
+  - {fileID: -4854441029647399159}
+  - {fileID: 3967283406786688397}
+  - {fileID: -7030342008190812172}
+  - {fileID: 8978028756095053085}
+  - {fileID: -5727216391067715153}
+  - {fileID: 1892003142521863135}
   EditorParameters: []
-  MasterBanks: []
-  StringsBanks: []
-  stringsBankWriteTime: 0
+  MasterBanks:
+  - {fileID: -1531732152414213338}
+  StringsBanks:
+  - {fileID: -7661762581754528596}
+  stringsBankWriteTime: 637162447812672291
   cacheVersion: 3
+--- !u!114 &925672772946561888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SoundFX/MagicTeddyOhm
+  m_EditorClassIdentifier: 
+  Path: event:/SoundFX/MagicTeddyOhm
+  guid: acc03a9b4a4cc841835907ebd5bf3c02
+  Banks:
+  - {fileID: -1531732152414213338}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 106500
+--- !u!114 &1892003142521863135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SoundFX/Player/Respawn
+  m_EditorClassIdentifier: 
+  Path: event:/SoundFX/Player/Respawn
+  guid: feb9c0a2667859459c59b4bd29b581a9
+  Banks:
+  - {fileID: -1531732152414213338}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 342
+--- !u!114 &2295454974245909432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SoundFX/Player/Player_Footsteps
+  m_EditorClassIdentifier: 
+  Path: event:/SoundFX/Player/Player_Footsteps
+  guid: 00813b272a818d4794a4b2f7e1e2729d
+  Banks:
+  - {fileID: -1531732152414213338}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1850
+--- !u!114 &3426435478769728562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SoundFX/Player/NoAmmo
+  m_EditorClassIdentifier: 
+  Path: event:/SoundFX/Player/NoAmmo
+  guid: 072c508f95dd0048adfd6c8521c29568
+  Banks:
+  - {fileID: -1531732152414213338}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 440
+--- !u!114 &3967283406786688397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SoundFX/Player/Reload
+  m_EditorClassIdentifier: 
+  Path: event:/SoundFX/Player/Reload
+  guid: d69a9fbff5e80d4d8a915cb09c8042bd
+  Banks:
+  - {fileID: -1531732152414213338}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2618
+--- !u!114 &4876799773490593263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SoundFX/Zombo/GibletBounce
+  m_EditorClassIdentifier: 
+  Path: event:/SoundFX/Zombo/GibletBounce
+  guid: 86cdfd2c94369c4394343cb30dc07acc
+  Banks:
+  - {fileID: -1531732152414213338}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2928
+--- !u!114 &8653721357033805716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SoundFX/Player/Death
+  m_EditorClassIdentifier: 
+  Path: event:/SoundFX/Player/Death
+  guid: 8c85ce9510cf794c9e5c3c168d8a88d7
+  Banks:
+  - {fileID: -1531732152414213338}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1423
+--- !u!114 &8978028756095053085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SoundFX/Player/Landing
+  m_EditorClassIdentifier: 
+  Path: event:/SoundFX/Player/Landing
+  guid: daa64e197d122645986d00b618ada693
+  Banks:
+  - {fileID: -1531732152414213338}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2001
+--- !u!114 &9150989442977802256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SoundFX/WaveStart
+  m_EditorClassIdentifier: 
+  Path: event:/SoundFX/WaveStart
+  guid: 39720abfe0716a4399cb4769b1bb44af
+  Banks:
+  - {fileID: -1531732152414213338}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 9116
