@@ -120,6 +120,11 @@ public class Health : MonoBehaviour
         {
             onDeath = new OnHealth();
         }
+
+        if (onCheckDead == null)
+        {
+            onCheckDead = new OnHealth();
+        }
     }
 
 #region Health

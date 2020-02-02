@@ -62,7 +62,7 @@ public class SceneManager : MonoBehaviour
         }
 
         //Set loading screen to inspector value and do not animate
-        SetLoadingScreen(loadingScreenVisible, false);
+        //!SetLoadingScreen(loadingScreenVisible, false);
         //Reset loadingScenes list
         loadingScenes = new List<AsyncOperation>();
     }
@@ -88,7 +88,7 @@ public class SceneManager : MonoBehaviour
         //    loadingScenes.Add(UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync((int)currentScene));
         //}
 
-        SetLoadingScreen(true, true);
+        //SetLoadingScreen(true, true);
         LoadScene(scene);
 
         StartCoroutine(TrackLoadProgress(scene, true));
