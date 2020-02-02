@@ -80,8 +80,12 @@ public class HandController : MonoBehaviour
         {
             shot.drawGizmos = true;
             parentPlayer.m_gun = shot;
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SoundFX/Player/Pickup", transform.position);
         }
-        
+        else
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SoundFX/Player/Landing", transform.position);
+        }
     }
 
     public void DropItem()

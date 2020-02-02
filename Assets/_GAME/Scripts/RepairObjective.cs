@@ -61,12 +61,14 @@ public class RepairObjective : MonoBehaviour
             Instantiate(explosionParticles, transform.position, Quaternion.identity);
             StartCoroutine(ChargeUp(delay));
             //Shock();
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SoundFX/MagicTeddyCharge", transform.position);
         }
     }
 
     private IEnumerator ChargeUp(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SoundFX/MagicTeddyBlast", transform.position);
         Debug.Log("KABOOM");
         Shock();
     }
@@ -80,6 +82,10 @@ public class RepairObjective : MonoBehaviour
     private void Shock()
     {
         waveManager.ReturnAgentsToPool(killableZombies);
+        foreach (GameObject zomb in killableZombies)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SoundFX/Explosion", zomb.transform.position);
+        }
         killableZombies.Clear();
         shockRadius += 5f;
         shockCollider.radius = shockRadius;

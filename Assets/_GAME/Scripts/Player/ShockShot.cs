@@ -43,7 +43,7 @@ public class ShockShot : Weapon
             {
                 ammo--;
                 //Activate
-                Debug.Log("Shock Shot has been fired!!");
+                //!Debug.Log("Shock Shot has been fired!!");
 
                 List<Ray> rayShots = new List<Ray>();
 
@@ -66,7 +66,7 @@ public class ShockShot : Weapon
                         Enemy enemy = hit.collider.gameObject.GetComponentInParent<Enemy>();
                         if (enemy != null)
                         {
-                            Debug.Log(enemy.gameObject.name + " KILLED!", enemy.gameObject);
+                            //Debug.Log(enemy.gameObject.name + " KILLED!", enemy.gameObject);
                             if (hitEffect != null)
                             {
                                 Instantiate(hitEffect, enemy.transform.position, Quaternion.identity);
@@ -85,6 +85,10 @@ public class ShockShot : Weapon
                 }
             }
         }
+        else
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SoundFX/Player/NoAmmo", transform.position);
+        }
 
         
     }
@@ -101,6 +105,7 @@ public class ShockShot : Weapon
     {
         ammo = maxAmmo += 5f;
         maxAmmo = ammo;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SoundFX/Player/Reload", transform.position);
     }
 
     private void OnDrawGizmos() {

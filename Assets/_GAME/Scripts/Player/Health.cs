@@ -282,6 +282,7 @@ public class Health : MonoBehaviour
             if (IsDead())
             {
                 onDeath.Invoke(this);
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SoundFX/Player/Death", transform.position);
                 return;
             }
             onDamaged.Invoke(this); 

@@ -186,6 +186,7 @@ public class AIManager : MonoBehaviour
     public void StartWave()
     {
         GetWaveParameters();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SoundFX/WaveStart", transform.position);
         spawnAgents = true;
         agentsSpawnedInWave = 0;
     }
