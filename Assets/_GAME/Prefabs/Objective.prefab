@@ -184,9 +184,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   killableZombies: []
   teleportPositions: []
+  explosionParticles: {fileID: 502791125017201527, guid: e5b3996270711694bbf79c028f7efb90,
+    type: 3}
   zombieLayer:
     serializedVersion: 2
     m_Bits: 1024
+  delay: 2.6
   shockRadius: 0
   activationCost: 0
   depositedMaterialCount: 0
