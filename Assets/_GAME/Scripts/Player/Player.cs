@@ -16,16 +16,23 @@ public class Player : MonoBehaviour
     public PlayerAnimation m_playerAnimation;
     public ShockShot m_gun;
     public WaveManager m_waveManager;
+    public RepairObjective m_objective;
 
     [Header("UI")]
     public TextMeshProUGUI healthTextValue;
     public TextMeshProUGUI ammoTextValue;
     public TextMeshProUGUI waveTextValue;
+    public TextMeshProUGUI teslaTextValue;
 
     // Start is called before the first frame update
     void Start()
     {
         m_waveManager = GameObject.Find("Singletons").GetComponent<WaveManager>();
+        m_objective = GameObject.Find("Objective").GetComponent<RepairObjective>();
+        if(m_objective == null)
+        {
+            Debug.LogError("No objective in scene. Place objective along with objective locations");
+        }
         //Death and Hurt animation event hookup
         if (m_Health != null && m_playerAnimation != null)
         {
@@ -49,6 +56,8 @@ public class Player : MonoBehaviour
         healthTextValue.text = m_Health.health.ToString();
 
         waveTextValue.text = m_waveManager.WaveNumber.ToString();
+
+        teslaTextValue.text = m_objective.activationCost.ToString();
 
         if(m_gun != null)
         {

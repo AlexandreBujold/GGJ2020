@@ -19,7 +19,7 @@ public class RepairObjective : MonoBehaviour
     public float delay = 2.6f;
 
     [SerializeField] private float shockRadius;
-    [SerializeField] private int activationCost;
+    public int activationCost;
     [SerializeField] private int depositedMaterialCount;
 
     [SerializeField] private int currentTeleIndex = 0;
