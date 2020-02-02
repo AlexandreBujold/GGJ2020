@@ -4929,7 +4929,7 @@ MonoBehaviour:
   range: 5
   spreadAngle: 60
   numberOfShotsPerAmmo: 3
-  ammo: 1000
+  ammo: 45
   effect: {fileID: 7986657862351571560}
   hitEffect: {fileID: 8710203701876129015, guid: 2a92bf9011f5ce3429e9db7564312681,
     type: 3}

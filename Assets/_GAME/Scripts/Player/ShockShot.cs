@@ -10,6 +10,7 @@ public class ShockShot : Weapon
     public float spreadAngle = 120f;
     public float numberOfShotsPerAmmo = 3;
 
+    public float maxAmmo;
     public float ammo = 5;
     [Space]
     public ParticleSystem effect;
@@ -22,7 +23,7 @@ public class ShockShot : Weapon
     // Start is called before the first frame update
     void Start()
     {
-        
+        ammo = 25f;
     }
 
     // Update is called once per frame
@@ -33,45 +34,49 @@ public class ShockShot : Weapon
 
     public override void Activate()
     {
-        if (StartCooldown()) //Can go on cooldown, which means it can be used
+        if (ammo > 0)
         {
-            //Activate
-            Debug.Log("Shock Shot has been fired!!");
-            
-            List<Ray> rayShots = new List<Ray>();
-
-            //Get left most spread that the shot will follow, and rotate incrementally by angleBetweenShots
-            Vector3 leftDirection = Quaternion.Euler(0, -(spreadAngle/2),0) * transform.forward;
-            //Iterate through and raycast each shot
-            for (int i = 0; i < numberOfShotsPerAmmo; i++)
+            if (StartCooldown()) //Can go on cooldown, which means it can be used
             {
-                float angleBetweenShots = numberOfShotsPerAmmo == 1 ? spreadAngle / 2 : (spreadAngle / (numberOfShotsPerAmmo - 1)) * i;
-                Vector3 newShotDirection = Quaternion.Euler(0, angleBetweenShots, 0) * leftDirection;
-                
-                RaycastHit hit;
-                Physics.Raycast(transform.position, newShotDirection, out hit, range, hitMask);
-                
-                rayShots.Add(new Ray(transform.position, newShotDirection));
+                ammo--;
+                //Activate
+                Debug.Log("Shock Shot has been fired!!");
 
-                
-                if (hit.collider != null)
+                List<Ray> rayShots = new List<Ray>();
+
+                //Get left most spread that the shot will follow, and rotate incrementally by angleBetweenShots
+                Vector3 leftDirection = Quaternion.Euler(0, -(spreadAngle / 2), 0) * transform.forward;
+                //Iterate through and raycast each shot
+                for (int i = 0; i < numberOfShotsPerAmmo; i++)
                 {
-                    Enemy enemy = hit.collider.gameObject.GetComponentInParent<Enemy>();
-                    if (enemy != null)
+                    float angleBetweenShots = numberOfShotsPerAmmo == 1 ? spreadAngle / 2 : (spreadAngle / (numberOfShotsPerAmmo - 1)) * i;
+                    Vector3 newShotDirection = Quaternion.Euler(0, angleBetweenShots, 0) * leftDirection;
+
+                    RaycastHit hit;
+                    Physics.Raycast(transform.position, newShotDirection, out hit, range, hitMask);
+
+                    rayShots.Add(new Ray(transform.position, newShotDirection));
+
+
+                    if (hit.collider != null)
                     {
-                        Debug.Log(enemy.gameObject.name + " KILLED!", enemy.gameObject);
-                        if (hitEffect != null)
+                        Enemy enemy = hit.collider.gameObject.GetComponentInParent<Enemy>();
+                        if (enemy != null)
                         {
-                            Instantiate(hitEffect, enemy.transform.position, Quaternion.identity);
+                            Debug.Log(enemy.gameObject.name + " KILLED!", enemy.gameObject);
+                            if (hitEffect != null)
+                            {
+                                Instantiate(hitEffect, enemy.transform.position, Quaternion.identity);
+                            }
+                            enemy.Kill();
                         }
-                        enemy.Kill();
                     }
                 }
-            }
-            rays = rayShots;
-            if (effect != null)
-            {
-                effect.Play();
+                rays = rayShots;
+                if (effect != null)
+                {
+                    effect.Play();
+                }
             }
         }
 
@@ -84,6 +89,12 @@ public class ShockShot : Weapon
         {
             effect.Stop();
         }
+    }
+
+    public void UpdateAmmo()
+    {
+        ammo = maxAmmo += 5f;
+        maxAmmo = ammo;
     }
 
     private void OnDrawGizmos() {

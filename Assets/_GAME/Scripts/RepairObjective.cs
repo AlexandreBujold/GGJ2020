@@ -74,6 +74,7 @@ public class RepairObjective : MonoBehaviour
         shockRadius += 5f;
         shockCollider.radius = shockRadius;
         transform.position = RandomizePosition();
+        ReloadAllGuns();
     }
 
     private Vector3 RandomizePosition()
@@ -86,6 +87,15 @@ public class RepairObjective : MonoBehaviour
         currentTeleIndex = randomIndex;
 
         return teleportPositions[randomIndex].transform.position;
+    }
+
+    private void ReloadAllGuns()
+    {
+        ShockShot[] gunList = FindObjectsOfType<ShockShot>();
+        foreach(ShockShot gun in gunList)
+        {
+            gun.UpdateAmmo();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
