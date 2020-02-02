@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour
 
     [Space]
     public bool isGrounded = false;
+    private bool wasGrounded = false;
     public bool jumping;
     public Vector3 velocity;
 
@@ -276,6 +277,10 @@ public class PlayerController : MonoBehaviour
             {
                 velocity.y = 0f;
                 jumping = false;
+                if (wasGrounded == false)
+                {
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/SoundFX/Player/Landing", transform.position);
+                }
             }
             else
             {
@@ -302,6 +307,7 @@ public class PlayerController : MonoBehaviour
                 jumping = false;
             }
         }
+        wasGrounded = isGrounded;
         return velocity.y * Time.deltaTime;
     }
 

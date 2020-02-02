@@ -63,6 +63,7 @@ public class Enemy : MonoBehaviour, IKillable
         {
             aiManager.RemoveFromList(this.gameObject);
         }
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SoundFX/Zombo/ZomboDeath", transform.position);
         gameObject.SetActive(false);
     }
 
@@ -117,6 +118,11 @@ public class Enemy : MonoBehaviour, IKillable
             {
                 agent.SetDestination(hit.position);
                 testPos = hit.position;
+            }
+
+            if (Random.value <= 0.02f)
+            {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SoundFX/Zombo/Groan", transform.position);
             }
         }
     }
