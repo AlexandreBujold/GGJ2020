@@ -90,7 +90,7 @@ public class SceneManager : MonoBehaviour
 
         //SetLoadingScreen(true, true);
         LoadScene(scene);
-
+        
         StartCoroutine(TrackLoadProgress(scene, true));
     }
 
