@@ -38,6 +38,11 @@ public class SceneManager : MonoBehaviour
     public float timeBetweenTips = 3;
     private Coroutine cycleTipsCoroutine;
 
+    public int deadPlayers = 0;
+
+    private bool player1Dead = false;
+    private bool player2Dead = false;
+
     [HideInInspector]
     public List<AsyncOperation> loadingScenes;
 
@@ -89,6 +94,29 @@ public class SceneManager : MonoBehaviour
     public void ChangeToEnding()
     {
         ChangeScene(SceneIndexes.END);
+    }
+
+    public void ChangeSceneToStart()
+    {
+        ChangeScene(SceneIndexes.MENU);
+    }
+
+    public void IncrementPlayerDeath(Health hp)
+    {
+        GameObject obj = hp.gameObject;
+        if(obj.name == "Player 1")
+        {
+            player1Dead = true;
+        }
+        if(obj.name == "Player 2")
+        {
+            player2Dead = true;
+        }
+
+        if(player1Dead && player2Dead)
+        {
+            ChangeToEnding();
+        }
     }
 
     public IEnumerator TrackLoadProgress(SceneIndexes scene, bool setActiveOnLoad) //Track all scenes that are loading, and calculate a load progress from that. Once scene is loaded, set it as active
