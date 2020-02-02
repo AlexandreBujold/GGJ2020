@@ -19,6 +19,8 @@ public class Enemy : MonoBehaviour, IKillable
 
     Vector3 testPos;
 
+    public Animator animator;
+
     private void Awake()
     {
         aiManager = GameObject.Find("Singletons").GetComponent<AIManager>();
