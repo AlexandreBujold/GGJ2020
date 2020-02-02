@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class ShockShot : Weapon
 {
@@ -25,6 +26,7 @@ public class ShockShot : Weapon
     {
         ammo = 25f;
         maxAmmo = ammo;
+        
     }
 
     // Update is called once per frame
@@ -73,6 +75,9 @@ public class ShockShot : Weapon
                         }
                     }
                 }
+
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SoundFX/Player/Shoot", transform.position);
+
                 rays = rayShots;
                 if (effect != null)
                 {
