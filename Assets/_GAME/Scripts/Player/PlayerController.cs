@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     #region Variables
     [Header("Controller Configuration")]
     public GamePad.Index controllerIndex;
+    public bool useKeyboard = false;
     [Space]
     [Tooltip("Player's movement will be relative to the perspective of the Camera.")]
     public bool cameraRelMovement = false;
@@ -105,14 +106,31 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Movement
-        rawMovementInput = GamePad.GetAxis(GamePad.Axis.LeftStick, controllerIndex);
+        if (useKeyboard)
+        {
+            rawMovementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        }
+        else
+        {
+            rawMovementInput = GamePad.GetAxis(GamePad.Axis.LeftStick, controllerIndex);
+        }
+        
         Vector3 movementValue = Vector3.zero;
 
         //Calculate Values (all scaled to Time.deltaTime already)
         movementValue = constForwardMovement == true ? CalculatePlanarMovement(new Vector2(0, 1), true) : CalculatePlanarMovement(rawMovementInput, false);
 
         //Combine Movement Values
-        movementValue = new Vector3(movementValue.x, CalculateGravityAndJumpMovement(GamePad.GetButtonDown(GamePad.Button.A, controllerIndex)), movementValue.z);
+        bool jump = false;
+        if (useKeyboard)
+        {
+            jump = Input.GetAxis("Jump") == 0 ? false : true;
+        }   
+        else
+        {
+            jump = GamePad.GetButtonDown(GamePad.Button.A, controllerIndex);
+        }
+        movementValue = new Vector3(movementValue.x, CalculateGravityAndJumpMovement(jump), movementValue.z);
 
         //Apply Values
         if (m_characterController != null)

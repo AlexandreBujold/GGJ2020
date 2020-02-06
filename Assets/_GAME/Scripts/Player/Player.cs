@@ -9,6 +9,7 @@ using GamepadInput;
 public class Player : MonoBehaviour
 {
     public GamePad.Index controllerIndex;
+    public bool useKeyboard = false;
     [Space]
     [Header("Components")]
     public PlayerController m_playerController;
@@ -48,11 +49,13 @@ public class Player : MonoBehaviour
         if (m_cameraController != null)
         {
             m_cameraController.controllerIndex = this.controllerIndex;
+            m_cameraController.useKeyboard = useKeyboard;
         }
 
         if (m_playerController != null)
         {
             m_playerController.controllerIndex = this.controllerIndex;
+            m_playerController.useKeyboard = useKeyboard;
         }
 
         if (m_HandController != null)

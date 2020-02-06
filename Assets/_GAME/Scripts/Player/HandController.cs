@@ -35,7 +35,7 @@ public class HandController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GamePad.GetButtonDown(GamePad.Button.X, controllerIndex))
+        if (GamePad.GetButtonDown(GamePad.Button.X, controllerIndex) || Input.GetKeyDown(KeyCode.E))
         {
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.forward, out hit, raycastRange, mask.value))
@@ -51,7 +51,7 @@ public class HandController : MonoBehaviour
             }
         }
 
-        if (GamePad.GetButtonDown(GamePad.Button.LeftShoulder, controllerIndex) || GamePad.GetButtonDown(GamePad.Button.RightShoulder, controllerIndex) || GamePad.GetTrigger(GamePad.Trigger.LeftTrigger, controllerIndex, false) != 0 || GamePad.GetTrigger(GamePad.Trigger.RightTrigger, controllerIndex, false) != 0)
+        if (GamePad.GetButtonDown(GamePad.Button.LeftShoulder, controllerIndex) || GamePad.GetButtonDown(GamePad.Button.RightShoulder, controllerIndex) || GamePad.GetTrigger(GamePad.Trigger.LeftTrigger, controllerIndex, false) != 0 || GamePad.GetTrigger(GamePad.Trigger.RightTrigger, controllerIndex, false) != 0 || Input.GetMouseButtonDown(0))
         {
             ActivateHeldItem();
         }

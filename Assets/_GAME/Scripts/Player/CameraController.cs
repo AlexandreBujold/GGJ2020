@@ -7,6 +7,7 @@ using GamepadInput;
 public class CameraController : MonoBehaviour
 {
     public GamePad.Index controllerIndex;
+    public bool useKeyboard = false;
     [Space]
     [Header("Camera View Configuration")]
     public float transitionTime;
@@ -56,7 +57,15 @@ public class CameraController : MonoBehaviour
             if (cameraTransform != null)
             {
                 //FPS Input
-                Vector2 rotationInput = GamePad.GetAxis(GamePad.Axis.RightStick, controllerIndex);
+                Vector2 rotationInput = Vector2.zero;
+                if (useKeyboard)
+                {
+                    rotationInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+                }
+                else
+                {
+                    rotationInput = GamePad.GetAxis(GamePad.Axis.RightStick, controllerIndex);
+                }
 
                 //Calculate Values (all scaled to Time.deltaTime already)
                 Vector3 rotVal = Vector3.zero;
