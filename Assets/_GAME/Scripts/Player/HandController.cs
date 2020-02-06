@@ -13,7 +13,6 @@ public class HandController : MonoBehaviour
     //public GameObject myCamera;
     public GameObject heldItem;
     public Transform holdTransform;
-    public Transform weaponTransform;
 
     [Space]
     [Header("Raycast Properties")]
@@ -23,8 +22,6 @@ public class HandController : MonoBehaviour
     [Space]
     [Header("Parent")]
     public Player parentPlayer;
-    public GameObject visualWeaponObj;
-    
 
     // Start is called before the first frame update
     void Start()
@@ -87,22 +84,6 @@ public class HandController : MonoBehaviour
             shot.drawGizmos = true;
             parentPlayer.m_gun = shot;
             FMODUnity.RuntimeManager.PlayOneShot("event:/SoundFX/Player/Pickup", transform.position);
-
-            //Hide normal mesh
-            MeshRenderer meshRenderer = shot.GetComponentInChildren<MeshRenderer>();
-            if (meshRenderer != null)
-            {
-                meshRenderer.enabled = false;
-                if (weaponTransform != null)
-                {
-                    heldItem.transform.position = weaponTransform.position;
-                }
-
-                if (visualWeaponObj != null)
-                {
-                    visualWeaponObj.SetActive(true);
-                }
-            }
         }
         else
         {
@@ -126,17 +107,6 @@ public class HandController : MonoBehaviour
             {
                 shot.drawGizmos = false;
                 parentPlayer.m_gun = null;
-
-                MeshRenderer meshRenderer = shot.GetComponentInChildren<MeshRenderer>();
-                if (meshRenderer != null)
-                {
-                    meshRenderer.enabled = true;
-                }
-
-                if (visualWeaponObj != null)
-                {
-                    visualWeaponObj.SetActive(false);
-                }
             }
 
             heldItem.transform.SetParent(null, true);

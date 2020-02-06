@@ -55,7 +55,6 @@ MonoBehaviour:
     type: 3}
   agent: {fileID: 3306429357484170318}
   animator: {fileID: 3166231814029745764}
-  effect: {fileID: 1353442046406717240, guid: 9421a45ec2a91014a95de8b1838d3a06, type: 3}
 --- !u!195 &3306429357484170318
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -104,11 +103,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZombieBear01
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: ebf1a33f924924bc9b6fdb87d7f07f68,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: b641bde1d45e5e04ba4170c28f8eee84, type: 2}
     - target: {fileID: -4216859302048453862, guid: ebf1a33f924924bc9b6fdb87d7f07f68,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -179,6 +173,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: ebf1a33f924924bc9b6fdb87d7f07f68,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b641bde1d45e5e04ba4170c28f8eee84, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebf1a33f924924bc9b6fdb87d7f07f68, type: 3}
 --- !u!4 &5006512735213335326 stripped

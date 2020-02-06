@@ -20,7 +20,6 @@ public class Enemy : MonoBehaviour, IKillable
     Vector3 testPos;
 
     public Animator animator;
-    public GameObject effect;
 
     private void Awake()
     {
@@ -65,11 +64,6 @@ public class Enemy : MonoBehaviour, IKillable
             aiManager.RemoveFromList(this.gameObject);
         }
         FMODUnity.RuntimeManager.PlayOneShot("event:/SoundFX/Zombo/ZomboDeath", transform.position);
-        if (effect != null)
-        {
-            Instantiate(effect, transform.position, Quaternion.identity);
-            FMODUnity.RuntimeManager.PlayOneShot("event:/SoundFX/Zombo/GibletBounce", transform.position);
-        }
         gameObject.SetActive(false);
     }
 
