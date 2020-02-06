@@ -185,10 +185,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1356732447454401828, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+    - target: {fileID: 1608094371121541636, guid: 06e1dfdd3bd39d142add43ff40b0be09,
         type: 3}
-      propertyPath: m_Name
-      value: Player 1
+      propertyPath: controllerIndex
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1356732447454401830, guid: 06e1dfdd3bd39d142add43ff40b0be09,
         type: 3}
@@ -245,10 +245,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1608094371121541636, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+    - target: {fileID: 1356732447454401828, guid: 06e1dfdd3bd39d142add43ff40b0be09,
         type: 3}
-      propertyPath: controllerIndex
-      value: 1
+      propertyPath: m_Name
+      value: Player 1
       objectReference: {fileID: 0}
     - target: {fileID: 4928850257852808889, guid: 06e1dfdd3bd39d142add43ff40b0be09,
         type: 3}
@@ -260,21 +260,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -46.199997
       objectReference: {fileID: 0}
-    - target: {fileID: 5291902822345423905, guid: 06e1dfdd3bd39d142add43ff40b0be09,
-        type: 3}
-      propertyPath: startHealth
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5291902822345423905, guid: 06e1dfdd3bd39d142add43ff40b0be09,
-        type: 3}
-      propertyPath: minHealth
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5291902822345423905, guid: 06e1dfdd3bd39d142add43ff40b0be09,
-        type: 3}
-      propertyPath: healthValueText
-      value: 
-      objectReference: {fileID: 7681732578989588992}
     - target: {fileID: 1356732448702310987, guid: 06e1dfdd3bd39d142add43ff40b0be09,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
@@ -303,8 +288,23 @@ PrefabInstance:
     - target: {fileID: 7730181703653591820, guid: 06e1dfdd3bd39d142add43ff40b0be09,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.1000004
+      value: 1.0999985
       objectReference: {fileID: 0}
+    - target: {fileID: 5291902822345423905, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: startHealth
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291902822345423905, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: minHealth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291902822345423905, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: healthValueText
+      value: 
+      objectReference: {fileID: 7681732578989588992}
     - target: {fileID: 4660756653047151155, guid: 06e1dfdd3bd39d142add43ff40b0be09,
         type: 3}
       propertyPath: m_PlaneDistance
@@ -379,6 +379,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 3895
+      objectReference: {fileID: 0}
+    - target: {fileID: 7641790962637190290, guid: 06e1dfdd3bd39d142add43ff40b0be09,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06e1dfdd3bd39d142add43ff40b0be09, type: 3}
