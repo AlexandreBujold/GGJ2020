@@ -30,6 +30,10 @@ public class HandController : MonoBehaviour
     void Start()
     {
         parentPlayer = GetComponentInParent<Player>();
+        if (visualWeaponObj != null)
+        {
+            visualWeaponObj.SetActive(false);
+        }
     }
 
     // Update is called once per frame

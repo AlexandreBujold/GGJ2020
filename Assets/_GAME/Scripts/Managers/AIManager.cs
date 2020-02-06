@@ -10,6 +10,7 @@ public class AIManager : MonoBehaviour
 
     [Header("Wave Manager and Agent List")]
     [SerializeField] private WaveManager waveManager;
+    [SerializeField] private List<Player> players;
     [SerializeField] private List<GameObject> agentList;
 
     [Space]
@@ -82,7 +83,6 @@ public class AIManager : MonoBehaviour
             {
                 StartCoroutine(WaveCooldown(waveCooldown));
                 spawnAgents = false;
-                Debug.Log("This works");
                 waveManager.waveComplete = true;
                 
             }
@@ -111,6 +111,12 @@ public class AIManager : MonoBehaviour
                     SetAgentSpawnPosition(agent);
                     agent.SetActive(true);
                     agentsSpawnedInWave++;
+
+                    Enemy enemy = agent.GetComponentInChildren<Enemy>();
+                    if (enemy != null)
+                    {
+                        enemy.players = this.players;
+                    }
                 }
             }
         }
@@ -134,7 +140,6 @@ public class AIManager : MonoBehaviour
         int spawnerToUse = Random.Range(0, spawnerMax);
 
         GameObject selectedSpawner = spawnZoneList[spawnerToUse];
-        Debug.Log(selectedSpawner);
         ZombieSpawnZone spawnerScript = selectedSpawner.GetComponent<ZombieSpawnZone>();
         Vector3 spawnerPosition = selectedSpawner.transform.position;
 

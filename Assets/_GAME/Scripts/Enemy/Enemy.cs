@@ -9,8 +9,8 @@ public class Enemy : MonoBehaviour, IKillable
 
     public AIManager aiManager;
     public RepairObjective repairObjective;
-    public GameObject player1;
-    public GameObject player2;
+
+    public List<Player> players;
     public GameObject target;
 
     [SerializeField] private GameObject batteryPrefab;
@@ -26,8 +26,6 @@ public class Enemy : MonoBehaviour, IKillable
     {
         aiManager = GameObject.Find("Singletons").GetComponent<AIManager>();
         agent = GetComponent<NavMeshAgent>();
-        player1 = GameObject.Find("Player 1");
-        player2 = GameObject.Find("Player 2");
     }
 
     private void Start()
@@ -75,31 +73,16 @@ public class Enemy : MonoBehaviour, IKillable
 
     private GameObject GetInitialTarget()
     {
-        float randomPlayer = Random.Range(0, 2);
-
-        if (randomPlayer == 0)
+        if (players != null && players.Count > 0)
         {
-            if(player1 == null)
+            int randomPlayer = 0;
+            if (players.Count > 1)
             {
-                return player2;
+                randomPlayer = Random.Range(0, players.Count);
             }
-            else
-            {
-                return player1;
-            }
+            return players[randomPlayer].gameObject;
         }
-        else
-        {
-            if (player2 == null)
-            {
-                return player1;
-            }
-            else
-            {
-                return player2;
-            }
-
-        }
+        return this.gameObject;
     }
 
     private void GenerateBattery()
@@ -120,12 +103,15 @@ public class Enemy : MonoBehaviour, IKillable
             NavMeshHit hit;
             int groundMask = 1 << NavMesh.GetAreaFromName("Walkable");
 
-            if(NavMesh.SamplePosition(target.transform.position, out hit, 5f, groundMask))
+            if (target != null)
             {
-                agent.SetDestination(hit.position);
-                testPos = hit.position;
+                if(NavMesh.SamplePosition(target.transform.position, out hit, 5f, groundMask))
+                {
+                    agent.SetDestination(hit.position);
+                    testPos = hit.position;
+                }
             }
-
+            
             if (Random.value <= 0.02f)
             {
                 FMODUnity.RuntimeManager.PlayOneShot("event:/SoundFX/Zombo/Groan", transform.position);

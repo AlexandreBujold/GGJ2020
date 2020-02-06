@@ -6,6 +6,7 @@ public class WaveManager : MonoBehaviour
 {
 
     public static WaveManager instance;
+    public List<Player> players;
 
     private AIManager aiManager;
 
@@ -60,8 +61,17 @@ public class WaveManager : MonoBehaviour
             for(int i = 0; i < difference + 5; i++) //Adds any missing agents to the pool
             {
                 GameObject newAgent = Instantiate(zombieBearPrefab, Vector3.zero, Quaternion.identity, agentParent.transform);
-                pooledAgents.Add(newAgent);
-                newAgent.SetActive(false);
+
+                if (players != null)
+                {
+                    Enemy enemy = newAgent.GetComponentInChildren<Enemy>();
+                    if (enemy != null)
+                    {
+                        enemy.players = players;
+                    }
+                    pooledAgents.Add(newAgent);
+                    newAgent.SetActive(false);
+                }
             }
         }
 
